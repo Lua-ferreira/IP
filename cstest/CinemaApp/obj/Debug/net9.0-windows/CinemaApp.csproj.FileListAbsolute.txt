@@ -1,0 +1,14 @@
+D:\IP\cstest\CinemaApp\bin\Debug\net9.0-windows\CinemaApp.exe
+D:\IP\cstest\CinemaApp\bin\Debug\net9.0-windows\CinemaApp.deps.json
+D:\IP\cstest\CinemaApp\bin\Debug\net9.0-windows\CinemaApp.runtimeconfig.json
+D:\IP\cstest\CinemaApp\bin\Debug\net9.0-windows\CinemaApp.dll
+D:\IP\cstest\CinemaApp\bin\Debug\net9.0-windows\CinemaApp.pdb
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\CinemaApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\CinemaApp.AssemblyInfoInputs.cache
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\CinemaApp.AssemblyInfo.cs
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\CinemaApp.csproj.CoreCompileInputs.cache
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\CinemaApp.dll
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\refint\CinemaApp.dll
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\CinemaApp.pdb
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\CinemaApp.genruntimeconfig.cache
+D:\IP\cstest\CinemaApp\obj\Debug\net9.0-windows\ref\CinemaApp.dll
