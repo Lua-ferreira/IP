@@ -1,37 +1,44 @@
 #include "poly.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-Poly* create_poly(int p) {
-    Poly* poly = (Poly*)malloc(sizeof(Poly));
-    if (!poly) {
-        fprintf(stderr, "Erro ao alocar memória para o polinômio.\n");
-        exit(EXIT_FAILURE);
+// Carregar um polinômio de um arquivo binário
+Poly* load_poly(const char* filename) {
+    FILE* file = fopen(filename, "rb");
+    if (!file) {
+        perror("Erro ao abrir o arquivo");
+        return NULL;
     }
-    strncpy(poly->code, "poly", ID_SIZE);
-    poly->p = p;
-    poly->coef = (double*)calloc(p, sizeof(double));
-    if (!poly->coef) {
-        free(poly);
-        fprintf(stderr, "Erro ao alocar memória para os coeficientes.\n");
-        exit(EXIT_FAILURE);
-    }
-    return poly;
+
+    Poly* p = (Poly*)malloc(sizeof(Poly));
+    fread(p->code, sizeof(char), ID_SIZE, file);
+    fread(&p->p, sizeof(int), 1, file);
+
+    p->coef = (double*)malloc(p->p * sizeof(double));
+    fread(p->coef, sizeof(double), p->p, file);
+
+    fclose(file);
+    return p;
 }
 
-void free_poly(Poly* poly) {
-    if (poly) {
-        free(poly->coef);
-        free(poly);
-    }
-}
-
-void save_poly(const char* filename, Poly* poly) {
+// Salvar um polinômio em um arquivo binário
+void save_poly(const char* filename, const Poly* p) {
     FILE* file = fopen(filename, "wb");
     if (!file) {
-        fprintf(stderr, "Erro ao abrir o arquivo para escrita: %s\n", filename);
-        exit(EXIT_FAILURE);
+        perror("Erro ao abrir o arquivo para escrita");
+        return;
     }
-    fwrite(poly->code, sizeof(char), ID_SIZE, file);
-    fwrite(&poly->p, sizeof(int), 1, file);
-    fwrite(poly->coef, sizeof(double), poly->p, file);
+
+    fwrite(p->code, sizeof(char), ID_SIZE, file);
+    fwrite(&p->p, sizeof(int), 1, file);
+    fwrite(p->coef, sizeof(double), p->p, file);
+
     fclose(file);
+}
+
+// Liberar a memória de um polinômio
+void free_poly(Poly* p) {
+    free(p->coef);
+    free(p);
 }
